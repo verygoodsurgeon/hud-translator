@@ -7,7 +7,7 @@
 - MVP 코드 동작: 번역/대화/받아쓰기 모드, HUD 표시 설정, 엔진 3종(Soniox·브라우저 내장·데모), 정밀번역(F6), 용어집, 기록, 지연 표시, 화면 꺼짐 방지, PWA 셸.
 - 검증: `npm test` 17개 통과, `npm run e2e` 3개 통과(데모 엔진), `npm run build` 성공.
 - **실제 마이크·실제 API로는 아직 시험하지 않았다.** (이 개발 환경에 마이크·키 없음) → 아래 T1이 최우선.
-- 배포(호스팅) 안 됨. GitHub 저장소 없음. 저장소 생성·push는 사용자 허락 후에만.
+- 저장소: verygoodsurgeon/hud-translator. 배포는 T1 참고.
 
 ## 작업 목록 (위에서부터 순서대로)
 상태: [x] 완료 · [ ] 할 일 · [~] 진행 중 · [?] 사용자 결정 필요
@@ -18,7 +18,7 @@
 - [x] T0.2 엔진: soniox.ts, webspeech.ts, mock.ts
 - [x] T0.3 UI: Hud, ConversationHud, Controls, SettingsPanel, HistoryPanel, LatencyOverlay
 - [x] T0.4 PWA: manifest, sw.js, icon
-- [?] T1 호스팅: 휴대폰에서 열려면 HTTPS 주소가 필요(마이크 권한). 후보: GitHub Pages(저장소 필요) / Cloudflare Pages / Netlify. **사용자에게 저장소 생성 허락 받기.**
+- [~] T1 호스팅: 저장소 https://github.com/verygoodsurgeon/hud-translator (Public, 2026-11-12 사용자 생성). main에 push하면 .github/workflows/pages.yml이 테스트·빌드 후 GitHub Pages에 배포. 예상 주소 https://verygoodsurgeon.github.io/hud-translator/ (Pages 소스를 'GitHub Actions'로 설정해야 함).
   - 빌드 산출물 `dist/`는 정적 파일이라 어디든 올리면 됨(`base: './'` 설정됨).
 - [ ] T2 실기 시험 (docs/06_test_plan.md 표 채우기): Android Chrome + Soniox 키, iPhone Safari.
   - 확인할 것: Soniox 브라우저 인증(서브프로토콜 방식) 성공 여부, `<end>` 토큰 실제 수신 여부, 번역 토큰의 `language` 필드가 목표 언어로 오는지(대화 모드 화면 분리가 이것에 의존).
